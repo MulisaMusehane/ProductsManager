@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Read";
+}
+
+@model Gendaccc.Models.Product
+
+<div class="container text-center" style="width: 70%; background-color: lightblue; padding: 20px; margin-top: 20px;">
+    <h1 class="mb-4">@Model.Name</h1>
+
+    <dl class="row">
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.Category</dd>
+        <dt class="col-sm-3">Price</dt>
+        <dd class="col-sm-9">@Model.Price</dd>
+    </dl>
+
+    <a href="@Url.Action("Index")" class="btn btn-primary mt-3">Back to List</a>
+</div>

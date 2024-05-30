@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h1 class="text-center">Product List</h1>
+
+<div class="table-responsive text-center">
+    <table class="table table-striped mx-auto" style="width: 70%; background-color: lightblue;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>
+                        @Html.ActionLink("Read", "Read", new { id = product.Id }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Edit", "Edit", new { id = product.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Delete", "Delete", new { id = product.Id }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-center">
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create a New Product</a>
+</div>

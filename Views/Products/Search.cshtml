@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+@model List<Gendaccc.Models.Product>
+
+
+<h1 class="text-center">Search Products</h1>
+
+<div class="text-center mb-3">
+    <input type="text" id="searchString" placeholder="Search by name" />
+    <button id="searchButton" class="btn btn-primary">Search</button>
+</div>
+
+<div id="productTable">
+    <!-- The product table will be inserted here by JavaScript -->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#searchButton').click(function () {
+            var searchString = $('#searchString').val();
+            var apiUrl = "https://gendacproficiencytest.azurewebsites.net/API/ProductsAPI/";
+            $.get(apiUrl, { page: 1, pageSize: 50, orderBy: 'Name', ascending: true, filter: searchString }, function (data) {
+                var html = '';
+                if (data.Results && data.Results.length > 0) {
+                    html += '<table class="table table-striped mx-auto" style="width: 70%; background-color: lightblue;">';
+                    html += '<thead><tr><th>Name</th><th>Actions</th></tr></thead><tbody>';
+                    data.Results.forEach(function (product) {
+                        html += '<tr><td>' + product.Name + '</td><td>';
+                        html += '<a href="/Products/Read/' + product.Id + '" class="btn btn-success">Read</a> ';
+                        html += '<a href="/Products/Edit/' + product.Id + '" class="btn btn-warning">Edit</a> ';
+                        html += '<a href="/Products/Delete/' + product.Id + '" class="btn btn-danger">Delete</a>';
+                        html += '</td></tr>';
+                    });
+                    html += '</tbody></table>';
+                } else {
+                    html = '<p>No products found.</p>';
+                }
+                $('#productTable').html(html);
+            });
+        });
+    });
+
+</script>

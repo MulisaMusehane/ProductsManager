@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="text-center" aria-labelledby="dashboardTitle" style="margin-top: 50px;">
+        <div class="welcome-message">
+            <h1 id="dashboardTitle" class="display-4">Welcome to the Products Manager Dashboard</h1>
+            <p class="lead">Proceed by selecting actions on the navigation bar above.</p>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <h3 class="text-success mb-3">Display</h3>
+                    <p class="text-muted">View a list of all existing products with their attributes.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h3 class="text-primary mb-3">Create</h3>
+                    <p class="text-muted">Add a new product to the database.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h3 class="text-info mb-3">Read</h3>
+                    <p class="text-muted">Read and display details of any specific product.</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h3 class="text-warning mb-3">Update</h3>
+                    <p class="text-muted">Modify and save details of any product.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3 class="text-danger mb-3">Delete</h3>
+                    <p class="text-muted">Remove an existing product from the database.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row justify-content-center mt-5">
+        <section class="col-md-8 text-center">
+            <p class="text-muted">
+                The Web API hosted on this site provides an interface for managing a comprehensive list of products.
+            </p>
+        </section>
+    </section>
+</main>
+
+<style>
+    .welcome-message {
+        margin-bottom: 30px;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+    }
+
+    section.bg-light {
+        background-color: #f0f9ff;
+    }
+
+    h2 {
+        color: #007bff;
+    }
+
+    h3 {
+        color: #6c757d;
+    }
+
+    p.text-muted {
+        font-size: 1.1rem;
+    }
+</style>
